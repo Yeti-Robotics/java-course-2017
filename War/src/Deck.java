@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class Deck {
@@ -21,12 +22,20 @@ public class Deck {
 	public void shuffle() {
 		Random random = new Random();
 		for (int i = 0; i < cards.length; i++) {
-			int from = random.nextInt(cards.length);
+			int from = i;
 			int to = random.nextInt(cards.length);
 			Card temp = cards[from];
 			cards[from] = cards[to];
 			cards[to] = temp;
 		}
+	}
+	
+	public Card[] dealPlayer1Cards() {
+		return Arrays.copyOfRange(cards, 0, cards.length / 2);
+	}
+	
+	public Card[] dealPlayer2Cards() {
+		return Arrays.copyOfRange(cards, cards.length / 2, cards.length);
 	}
 
 	@Override
