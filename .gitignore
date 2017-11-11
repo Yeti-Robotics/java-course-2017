@@ -2,3 +2,5 @@
 .recommenders
 bin
 .settings
+build
+dist
